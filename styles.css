@@ -154,6 +154,15 @@ a:focus-visible {
   margin: 1rem 0;
 }
 
+.contact-links {
+  margin: 1rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.contact-links li + li {
+  margin-top: 0.65rem;
+}
+
 .listing-grid,
 .about-grid {
   display: grid;
