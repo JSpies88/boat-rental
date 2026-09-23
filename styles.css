@@ -20,9 +20,8 @@ body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   background:
-    radial-gradient(circle at 15% 20%, rgba(244, 183, 63, 0.24) 0%, transparent 45%),
-    radial-gradient(circle at 85% 15%, rgba(214, 73, 51, 0.18) 0%, transparent 42%),
-    repeating-linear-gradient(135deg, rgba(255, 255, 255, 0.26) 0 14px, rgba(255, 255, 255, 0.12) 14px 28px),
+    radial-gradient(circle at 15% 20%, rgba(244, 183, 63, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(214, 73, 51, 0.12) 0%, transparent 42%),
     var(--background);
   color: var(--text);
   line-height: 1.6;
@@ -30,8 +29,9 @@ body {
 
 .hero {
   background:
-    linear-gradient(145deg, rgba(201, 56, 38, 0.92), rgba(232, 136, 38, 0.92) 55%, rgba(244, 183, 63, 0.88)),
-    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.12) 0 10px, rgba(255, 255, 255, 0) 10px 20px);
+    linear-gradient(rgba(95, 27, 17, 0.22), rgba(95, 27, 17, 0.22)),
+    linear-gradient(145deg, rgba(176, 46, 31, 0.94), rgba(197, 85, 27, 0.93) 55%, rgba(181, 74, 24, 0.92)),
+    repeating-linear-gradient(-45deg, rgba(255, 255, 255, 0.08) 0 10px, rgba(255, 255, 255, 0) 10px 20px);
   color: #fff;
   padding: 5rem 1.5rem;
 }
