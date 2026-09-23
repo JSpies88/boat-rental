@@ -112,8 +112,7 @@ h2 {
   opacity: 0.92;
 }
 
-.button:focus-visible,
-.text-link:focus-visible {
+a:focus-visible {
   outline: 3px solid var(--accent-dark);
   outline-offset: 3px;
 }
