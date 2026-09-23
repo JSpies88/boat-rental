@@ -172,6 +172,10 @@ a:focus-visible {
   font-weight: 700;
 }
 
+.new-tab-indicator {
+  margin-left: 0.2rem;
+}
+
 .note,
 .footer {
   color: var(--muted);
