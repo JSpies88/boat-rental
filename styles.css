@@ -1,14 +1,15 @@
 :root {
   color-scheme: light;
-  --background: #f8f5ef;
-  --surface: #ffffff;
-  --surface-alt: #eef4f5;
-  --text: #17212b;
-  --muted: #5a6875;
-  --accent: #0f7a80;
-  --accent-dark: #0b5256;
-  --border: rgba(23, 33, 43, 0.08);
-  --shadow: 0 18px 45px rgba(10, 28, 41, 0.08);
+  --background: #fff3df;
+  --surface: #fffaf1;
+  --surface-alt: #ffe6cc;
+  --text: #3b2318;
+  --muted: #7a4a38;
+  --accent: #d64933;
+  --accent-dark: #a02d1f;
+  --sunny: #f4b73f;
+  --border: rgba(160, 45, 31, 0.18);
+  --shadow: 0 18px 45px rgba(131, 47, 23, 0.12);
 }
 
 * {
@@ -18,13 +19,18 @@
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
-  background: var(--background);
+  background:
+    radial-gradient(circle at 15% 20%, rgba(244, 183, 63, 0.18) 0%, transparent 45%),
+    radial-gradient(circle at 85% 15%, rgba(214, 73, 51, 0.12) 0%, transparent 42%),
+    var(--background);
   color: var(--text);
   line-height: 1.6;
 }
 
 .hero {
-  background: linear-gradient(135deg, rgba(15, 122, 128, 0.92), rgba(7, 44, 61, 0.9));
+  background:
+    linear-gradient(rgba(95, 27, 17, 0.22), rgba(95, 27, 17, 0.22)),
+    linear-gradient(145deg, rgba(176, 46, 31, 0.94), rgba(197, 85, 27, 0.93) 55%, rgba(181, 74, 24, 0.92));
   color: #fff;
   padding: 5rem 1.5rem;
 }
@@ -88,7 +94,7 @@ h2 {
 }
 
 .button {
-  background: #fff;
+  background: #fff9eb;
   color: var(--accent-dark);
   font-weight: 700;
   padding: 0.95rem 1.4rem;
@@ -124,7 +130,7 @@ a:focus-visible {
 
 .section--alt .text-link:focus-visible {
   outline-color: var(--accent);
-  background: rgba(15, 122, 128, 0.08);
+  background: rgba(214, 73, 51, 0.12);
   border-radius: 0.35rem;
 }
 
@@ -133,7 +139,9 @@ a:focus-visible {
 }
 
 .section--alt {
-  background: var(--surface-alt);
+  background:
+    linear-gradient(180deg, rgba(255, 244, 225, 0.75), rgba(255, 230, 204, 0.9)),
+    var(--surface-alt);
 }
 
 .section__heading {
@@ -142,7 +150,7 @@ a:focus-visible {
 }
 
 .card {
-  background: var(--surface);
+  background: linear-gradient(180deg, #fffdf8, var(--surface));
   border: 1px solid var(--border);
   border-radius: 24px;
   box-shadow: var(--shadow);
