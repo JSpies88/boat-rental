@@ -40,6 +40,6 @@ form.addEventListener("submit", (e) => {
 document.getElementById("email-btn").addEventListener("click", () => {
   const text = buildMessage();
   if (!text) return;
-  const subject = encodeURIComponent("Cape Town boat & stay enquiry");
+  const subject = encodeURIComponent("Cape Town Collection enquiry");
   window.location.href = `mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${encodeURIComponent(text)}`;
 });
