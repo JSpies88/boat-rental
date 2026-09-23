@@ -123,6 +123,12 @@ h2 {
   box-shadow: 0 0 0 6px rgba(255, 255, 255, 0.22);
 }
 
+.section--alt .text-link:focus-visible {
+  outline-color: var(--accent);
+  background: rgba(15, 122, 128, 0.08);
+  border-radius: 0.35rem;
+}
+
 .section {
   padding: 4rem 1.5rem;
 }
