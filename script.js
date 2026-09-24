@@ -1,6 +1,6 @@
 // ====== Update these with your own details ======
-const WHATSAPP_NUMBER = "27000000000"; // country code + number, no "+" or spaces (e.g. 27821234567)
-const EMAIL_ADDRESS = "hello@example.com";
+const WHATSAPP_NUMBER = "27826262701"; // country code + number, no "+" or spaces (e.g. 27821234567)
+const EMAIL_ADDRESS = "jsjoubertspies7@gmail.com";
 // =================================================
 
 document.getElementById("year").textContent = new Date().getFullYear();
