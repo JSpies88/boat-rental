@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cape Town Boat Rental · Cape Town Collection</title>
+  <meta name="description" content="Private charters, bare boat hire and launched trips from Granger Bay. Choose a boat and tell us your dates." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <div class="nav__inner">
+      <a class="brand" href="index.html" aria-label="Cape Town Collection, home">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__name">Cape Town Collection</span>
+      </a>
+      <nav aria-label="Main">
+        <ul class="nav__links">
+          <li><a href="index.html#boat">The boat</a></li>
+          <li><a href="index.html#stays">Stays</a></li>
+          <li><a href="index.html#reviews">Reviews</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="boat-rental.html">Boat rentals</a></li>
+        </ul>
+      </nav>
+      <a class="button button--small" href="index.html#contact">Plan your trip</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="section">
+      <div class="section__heading">
+        <p class="eyebrow">Boat rentals</p>
+        <h1>Cape Town Boat Rental</h1>
+        <p>Choose a private charter, hire a bare boat for your own leisure, or hop aboard a launched boat out of Granger Bay. Use the contact form at the bottom to tell us what you'd like and when.</p>
+      </div>
+    </section>
+
+    <!-- Private charter options -->
+    <section class="section" id="private-charter">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Private charter</p>
+          <h2>Sunrise &amp; sunset charters — up to 6 people</h2>
+          <p>Relax with a local skipper on a private charter. Perfect for small groups, celebrations, photo shoots, or a slow day on the water. Choose sunrise for calm seas and golden light, or sunset for warm skies and evening city views.</p>
+          <ul>
+            <li>Capacity: Up to 6 guests</li>
+            <li>Includes skipper, safety kit &amp; basic refreshments</li>
+            <li>Flexible start times for sunrise or sunset</li>
+          </ul>
+        </div>
+
+        <figure class="photo-slot" aria-label="Photos of private charter boats">
+          <!-- Add images here. Example: <img src="images/charter-1.jpg" alt="Private charter boat"> -->
+          <div class="photo-placeholder">Photos of the boats (private charters)</div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Bare boat rentals -->
+    <section class="section section--tint" id="bare-boat">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Bare boat hire</p>
+          <h2>Hire the boat and go where you like</h2>
+          <p>For experienced skippers: hire a bare boat and explore at your own pace — rivers, dams, or the coastline — wherever local regulations allow. You take the helm; we make sure the boat is ready and safe.</p>
+          <ul>
+            <li>Requirements: Valid licence/experience as per rental terms</li>
+            <li>Flexible durations: half-day, full-day, or multi-day</li>
+            <li>We provide a briefing and safety equipment</li>
+          </ul>
+        </div>
+
+        <figure class="photo-slot" aria-label="Photos of bare boat rentals">
+          <!-- Add images here. Example: <img src="images/bare-boat-1.jpg" alt="Bare boat rental"> -->
+          <div class="photo-placeholder">Photos of the boats (bare boat rentals)</div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Launched trips from Granger Bay -->
+    <section class="section" id="granger-bay">
+      <div class="split">
+        <div>
+          <p class="eyebrow">Launched trips</p>
+          <h2>Launched from Granger Bay — hop on and go</h2>
+          <p>Skip the launch: our boats are already in the water at Granger Bay. Turn up, hop on and head out — ideal for quick departures, working around tight schedules, or if you simply want to save time.</p>
+          <ul>
+            <li>Meet at Granger Bay harbour</li>
+            <li>Quick boarding — boats are already launched</li>
+            <li>Options for skippered or self-skippered departures (where permitted)</li>
+          </ul>
+        </div>
+
+        <figure class="photo-slot" aria-label="Photos of launched boats at Granger Bay">
+          <!-- Add images here. Example: <img src="images/granger-1.jpg" alt="Granger Bay launch"> -->
+          <div class="photo-placeholder">Photos of the boats (Granger Bay launches)</div>
+        </figure>
+      </div>
+    </section>
+
+    <!-- Contact / enquiry form -->
+    <section class="section section--contact" id="rental-contact">
+      <div class="section__heading">
+        <p class="eyebrow">Contact us</p>
+        <h2>Enquire about a rental</h2>
+        <p>Tell us which option you're interested in and a few details so we can check availability and send a quote.</p>
+      </div>
+
+      <form id="rental-form" class="form" novalidate>
+        <fieldset>
+          <legend>Which option would you like to enquire about?</legend>
+          <label><input type="radio" name="option" value="Private charter" checked /> <span>Private charter (sunrise / sunset)</span></label>
+          <label><input type="radio" name="option" value="Bare boat" /> <span>Bare boat rental (self-skippered)</span></label>
+          <label><input type="radio" name="option" value="Launched - Granger Bay" /> <span>Launched from Granger Bay</span></label>
+        </fieldset>
+
+        <div class="form__row">
+          <label class="field">
+            <span>Group size</span>
+            <select name="group" required>
+              <option value="">Select</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+            </select>
+          </label>
+
+          <label class="field">
+            <span>Name and surname</span>
+            <input type="text" name="fullname" autocomplete="name" placeholder="First Last" required />
+          </label>
+        </div>
+
+        <div class="form__row">
+          <label class="field">
+            <span>Cellphone number</span>
+            <input type="tel" name="phone" autocomplete="tel" placeholder="+27 82 000 0000" required />
+          </label>
+
+          <label class="field">
+            <span>Date</span>
+            <input type="date" name="start_date" required />
+          </label>
+        </div>
+
+        <label class="field checkbox-field">
+          <input type="checkbox" id="multi-day" name="multi_day" /> <span>Multiple days</span>
+        </label>
+
+        <label class="field" id="end-date-wrapper" style="display:none">
+          <span>End date</span>
+          <input type="date" name="end_date" />
+        </label>
+
+        <label class="field">
+          <span>Notes (anything we should know)</span>
+          <textarea name="notes" rows="4" placeholder="Celebrating something? Bringing kids? Any access needs?"></textarea>
+        </label>
+
+        <p class="form__error" id="rental-form-error" role="alert" hidden>Please fill in the required fields.</p>
+
+        <div class="form__actions">
+          <button class="button" type="submit">Send enquiry</button>
+          <button class="text-link text-link--button" type="button" id="contact-whatsapp">Or send on WhatsApp</button>
+        </div>
+      </form>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <a class="brand" href="index.html">
+        <span class="brand__mark" aria-hidden="true"></span>
+        <span class="brand__name">Cape Town Collection</span>
+      </a>
+      <p>Private boat days and Airbnb stays in Cape Town.</p>
+      <p class="footer__small">© <span id="year"></span></p>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle end date when multiple days is checked
+    document.addEventListener('DOMContentLoaded', function () {
+      var multi = document.getElementById('multi-day');
+      var endWrapper = document.getElementById('end-date-wrapper');
+      multi.addEventListener('change', function () {
+        endWrapper.style.display = multi.checked ? 'block' : 'none';
+        if (!multi.checked) {
+          var endInput = endWrapper.querySelector('input[name="end_date"]');
+          if (endInput) endInput.value = '';
+        }
+      });
+
+      var form = document.getElementById('rental-form');
+      form.addEventListener('submit', function (e) {
+        e.preventDefault();
+        // Basic client-side validation
+        var required = form.querySelectorAll('[required]');
+        var valid = true;
+        required.forEach(function (el) {
+          if (!el.value) valid = false;
+        });
+        if (!valid) {
+          var err = document.getElementById('rental-form-error');
+          err.hidden = false;
+          err.textContent = 'Please fill in the required fields.';
+          err.focus();
+          return;
+        }
+
+        // Collect form data and send via fetch to your endpoint or open mailto/WhatsApp
+        // Placeholder: show a confirmation for now
+        alert('Thanks — your enquiry has been prepared. We will contact you shortly.');
+        form.reset();
+        endWrapper.style.display = 'none';
+      });
+
+      var waBtn = document.getElementById('contact-whatsapp');
+      waBtn.addEventListener('click', function () {
+        // Create a simple WhatsApp message from the form values
+        var option = form.querySelector('input[name="option"]:checked').value;
+        var name = form.querySelector('input[name="fullname"]').value || '';
+        var phone = form.querySelector('input[name="phone"]').value || '';
+        var start = form.querySelector('input[name="start_date"]').value || '';
+        var multiChecked = document.getElementById('multi-day').checked;
+        var end = form.querySelector('input[name="end_date"]').value || '';
+        var msg = encodeURIComponent('Enquiry: ' + option + '\nName: ' + name + '\nPhone: ' + phone + '\nStart: ' + start + (multiChecked ? ('\nEnd: ' + end) : '') );
+        var waUrl = 'https://wa.me/?text=' + msg;
+        window.open(waUrl, '_blank');
+      });
+    });
+  </script>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
