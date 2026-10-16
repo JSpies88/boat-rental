@@ -45,13 +45,60 @@
 <script>
   document.getElementById('openInstagram').addEventListener('click', function () {
     window.open(
-      'https://www.instagram.com/capetownboatrentals/',
+      'https://www.instagram.com/capetown_boat_rentals?exln=MTJlZmFhYmhsMnkwbQ%3D%3D&utm_source=qr',
       'InstagramWindow',
       'width=1200,height=900,scrollbars=yes,resizable=yes'
     );
   });
 </script>
-        
+<button id="showInstaModal">Follow us on Instagram</button>
+
+<div id="instaModal" class="modal" hidden>
+  <div class="modal__content">
+    <button class="close" aria-label="Close">×</button>
+    <h3>Follow Cape Town Boat Rentals</h3>
+    <p>See the latest trips, views and boat rentals.</p>
+    <a class="button" href="https://www.instagram.com/capetown_boat_rentals?exln=MTJlZmFhYmhsMnkwbQ%3D%3D&utm_source=qr" target="_blank" rel="noopener">
+      Open Instagram
+    </a>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById('instaModal');
+  const btn = document.getElementById('showInstaModal');
+  const closeBtn = document.querySelector('.close');
+
+  btn.addEventListener('click', () => modal.hidden = false);
+  closeBtn.addEventListener('click', () => modal.hidden = true);
+</script>
+
+<style>
+  .modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    display: grid;
+    place-items: center;
+    z-index: 999;
+  }
+
+  .modal__content {
+    background: white;
+    width: min(90vw, 420px);
+    padding: 24px;
+    border-radius: 16px;
+    text-align: center;
+  }
+
+  .close {
+    float: right;
+    border: none;
+    background: none;
+    font-size: 24px;
+    cursor: pointer;
+  }
+</style>        
       </div>
     </section>
 
