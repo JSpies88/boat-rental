@@ -318,7 +318,7 @@ a { color: inherit; }
 /* Center the listing grid and keep a reasonable max width */
 .listing-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  grid-template-columns: repeat(2, minmax(280px, 1fr));    /* 2 replaced auto-fit */ 
   gap: 1.5rem;
   max-width: 1200px;
   margin: 0 auto;            /* center the whole grid on the page */
