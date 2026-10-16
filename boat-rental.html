@@ -165,12 +165,21 @@
           </label>
 
           <label class="field">
+           <span>Boat Selection</span>
+            <select name="group" required>
+              <option value="">Select</option>
+              <option>Sunfish (Private Charter Only)</option>
+              <option>Madodge (Max 8Pax)</option>
+              <option>Sunbird (Max 6Pax</option>
+            </select>
+        </div>
+
+        <div class="form__row">
+          <label class="field">
             <span>Date</span>
             <input type="date" name="start_date" required />
           </label>
-        </div>
-
-        <label class="field checkbox-field">
+           <label class="field checkbox-field">
           <input type="checkbox" id="multi-day" name="multi_day" /> <span>Multiple days</span>
         </label>
 
@@ -178,6 +187,8 @@
           <span>End date</span>
           <input type="date" name="end_date" />
         </label>
+        </div>
+       
 
         <label class="field">
           <span>Notes (anything we should know)</span>
