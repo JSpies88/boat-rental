@@ -372,7 +372,7 @@ a { color: inherit; }
   max-width: 450px !important;   /* match listing max-width */
   margin: 0 auto !important;     /* center */
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 12px;    
   background: transparent !important; /* try to remove any container white bg */
   border: none !important;
   padding: 0 !important;
@@ -406,7 +406,7 @@ a { color: inherit; }
 }
 .combo .eyebrow { color: var(--mint); margin-bottom: 0.5rem; }
 .combo h3 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
-.combo p { margin: 0; opacity: 0.85; }
+.combo p { margin: 0; opacity: 1; }     /* 0.85 */
 
 /* Responsive tweak to ensure nice grid on small screens */
 @media (max-width: 540px) {
