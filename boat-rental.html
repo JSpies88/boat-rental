@@ -43,37 +43,38 @@
       </div>
     </section>
 
-    <!-- Private charter options -->
-    <section class="section" id="private-charter">
+
+    <!-- Launched trips from Granger Bay -->
+    <section class="section" id="granger-bay">
       <div class="split">
         <div>
-          <p class="eyebrow">Private charter</p>
-          <h2>Sunrise &amp; sunset charters — up to 6 people</h2>
-          <p>Relax with a local skipper on a private charter. Perfect for small groups, celebrations, photo shoots, or a slow day on the water. Choose sunrise for calm seas and golden light, or sunset for warm skies and evening city views.</p>
+          <p class="eyebrow">Launched trips</p>
+          <h2>Day Trips from Granger Bay — hop on and go</h2>
+          <p>Skip the launch: our boats are already in the water at Oceana Power Boat Club. Turn up, hop on and head out — ideal for quick departures, working around tight schedules, or if you simply want to save time.</p>
           <ul>
-            <li>Capacity: Up to 6 guests</li>
-            <li>Includes skipper, safety kit &amp; basic refreshments</li>
-            <li>Flexible start times for sunrise or sunset</li>
+            <li>Meet at Oceana Power Boat Club</li>
+            <li>Quick boarding — boats are already launched</li>
+            <li>Self-skippered departures: Flexible depature and returns</li>
           </ul>
         </div>
 
-        <figure class="photo-slot" aria-label="Photos of private charter boats">
-          <!-- Add images here. Example: <img src="images/charter-1.jpg" alt="Private charter boat"> -->
-          <div class="photo-placeholder">Photos of the boats (private charters)</div>
+        <figure class="photo-slot" aria-label="Photos of launched boats at Granger Bay">
+          <!-- Add images here. Example: <img src="images/granger-1.jpg" alt="Granger Bay launch"> -->
+          <div class="photo-placeholder">Photos of the boats (Granger Bay launches)</div>
         </figure>
       </div>
     </section>
-
+    
     <!-- Bare boat rentals -->
     <section class="section section--tint" id="bare-boat">
       <div class="split">
         <div>
           <p class="eyebrow">Bare boat hire</p>
-          <h2>Hire the boat and go where you like</h2>
-          <p>For experienced skippers: hire a bare boat and explore at your own pace — rivers, dams, or the coastline — wherever local regulations allow. You take the helm; we make sure the boat is ready and safe.</p>
+          <h2>Need a boat for a Breakaway? </h2>
+          <p>For experienced skippers: hire a boat and explore at your own pace — rivers, dams, or the coastline — wherever local regulations allow. You take the helm; we make sure the boat is ready and safe.</p>
           <ul>
             <li>Requirements: Valid licence/experience as per rental terms</li>
-            <li>Flexible durations: half-day, full-day, or multi-day</li>
+            <li>Flexible durations: full-day, or multi-day</li>
             <li>We provide a briefing and safety equipment</li>
           </ul>
         </div>
@@ -85,23 +86,24 @@
       </div>
     </section>
 
-    <!-- Launched trips from Granger Bay -->
-    <section class="section" id="granger-bay">
+    <!-- Private charter options -->
+    <section class="section" id="private-charter">
       <div class="split">
         <div>
-          <p class="eyebrow">Launched trips</p>
-          <h2>Launched from Granger Bay — hop on and go</h2>
-          <p>Skip the launch: our boats are already in the water at Granger Bay. Turn up, hop on and head out — ideal for quick departures, working around tight schedules, or if you simply want to save time.</p>
+          <p class="eyebrow">Private charter</p>
+          <h2>Sunrise &amp; sunset charters — up to 6 people</h2>
+          <p>Relax with a local skipper on a private charter. Perfect for small groups, celebrations, photo shoots, or a slow day on the water. Choose sunrise for calm seas and golden light, or sunset for warm skies and evening city views.</p>
           <ul>
-            <li>Meet at Granger Bay harbour</li>
-            <li>Quick boarding — boats are already launched</li>
-            <li>Options for skippered or self-skippered departures (where permitted)</li>
+            <li>Capacity: Up to 6 guests</li>
+            <li>Includes skipper, safety kit &amp; basic refreshments</li>
+            <li>Flexible start times for sunrise or sunset (up to 2 hours)</li>
+            <li>Departing from Oceana Power Boat Club</li>
           </ul>
         </div>
 
-        <figure class="photo-slot" aria-label="Photos of launched boats at Granger Bay">
-          <!-- Add images here. Example: <img src="images/granger-1.jpg" alt="Granger Bay launch"> -->
-          <div class="photo-placeholder">Photos of the boats (Granger Bay launches)</div>
+        <figure class="photo-slot" aria-label="Photos of private charter boats">
+          <!-- Add images here. Example: <img src="images/charter-1.jpg" alt="Private charter boat"> -->
+          <div class="photo-placeholder">Photos of the boats (private charters)</div>
         </figure>
       </div>
     </section>
@@ -117,9 +119,11 @@
       <form id="rental-form" class="form" novalidate>
         <fieldset>
           <legend>Which option would you like to enquire about?</legend>
-          <label><input type="radio" name="option" value="Private charter" checked /> <span>Private charter (sunrise / sunset)</span></label>
-          <label><input type="radio" name="option" value="Bare boat" /> <span>Bare boat rental (self-skippered)</span></label>
-          <label><input type="radio" name="option" value="Launched - Granger Bay" /> <span>Launched from Granger Bay</span></label>
+          <label><input type="radio" name="option" value="Bare boat" /> <span>Bare Boat Rental (Breakaway)</span></label>
+          <label><input type="radio" name="option" value="Launched - Granger Bay" /> <span>Day at Sea from Oceana Power Boat Club</span></label>
+          <label><input type="radio" name="option" value="Private charter" checked /> <span>Private charter - Sunrise</span></label>
+          <label><input type="radio" name="option" value="Private charter" checked /> <span>Private charter - Sunset</span></label>
+          <label><input type="radio" name="option" value="Private charter" checked /> <span>Private charter - Full day</span></label>
         </fieldset>
 
         <div class="form__row">
@@ -127,18 +131,17 @@
             <span>Group size</span>
             <select name="group" required>
               <option value="">Select</option>
-              <option>1</option>
-              <option>2</option>
-              <option>3</option>
-              <option>4</option>
+              <option>1-4</option>
               <option>5</option>
               <option>6</option>
+              <option>6+</option>
+              <option>10+</option>
             </select>
           </label>
 
           <label class="field">
             <span>Name and surname</span>
-            <input type="text" name="fullname" autocomplete="name" placeholder="First Last" required />
+            <input type="text" name="fullname" autocomplete="name" placeholder="First + Last" required />
           </label>
         </div>
 
@@ -165,7 +168,7 @@
 
         <label class="field">
           <span>Notes (anything we should know)</span>
-          <textarea name="notes" rows="4" placeholder="Celebrating something? Bringing kids? Any access needs?"></textarea>
+          <textarea name="notes" rows="4" placeholder="Celebrating something? Bringing kids? Require Tubes?"></textarea>
         </label>
 
         <p class="form__error" id="rental-form-error" role="alert" hidden>Please fill in the required fields.</p>
