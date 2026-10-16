@@ -315,22 +315,43 @@ a { color: inherit; }
 .feature:first-child .feature__icon { background: rgba(255, 255, 255, 0.14); }
 
 /* ---------- Stays ---------- */
+/* Center the listing grid and keep a reasonable max width */
 .listing-grid {
   display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  max-width: 1200px;
+  margin: 0 auto;            /* center the whole grid on the page */
+  padding: 0 1rem;
+  justify-items: center;     /* center each grid cell's content */
 }
+
+/* Listing card — make layout consistent but remove the white/block background */
 .listing {
-  background: var(--surface);
+  background: transparent;   /* remove white block */
   border-radius: var(--radius-lg);
-  padding: 1.25rem;
-  box-shadow: var(--shadow);
+  padding: 1.25rem 0;        /* keep some vertical spacing but remove heavy box */
+  box-shadow: none;          /* remove shadow */
   display: flex;
   flex-direction: column;
   gap: 1rem;
   min-width: 0;
+  width: 100%;
+  max-width: 450px;          /* constrains cards to match embed width */
+  align-items: center;       /* center contents (tags, embed, text) */
+  text-align: center;
+  box-sizing: border-box;
 }
-.listing__tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+
+/* Tags centered at top of card */
+.listing__tags {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+/* Tag visual styles unchanged */
 .tag {
   font-size: 0.82rem;
   font-weight: 700;
@@ -339,11 +360,36 @@ a { color: inherit; }
   border: 1px solid var(--border);
   color: var(--muted);
 }
-.tag--accent { background: var(--ink); color: #fff; border-color: var(--ink); }
+.tag--accent {
+  background: var(--ink);
+  color: #fff;
+  border-color: var(--ink);
+}
 
-.airbnb-embed-frame { max-width: 100% !important; overflow: hidden; border-radius: 16px; }
-.airbnb-embed-frame iframe { max-width: 100%; }
+/* Make the Airbnb embed fluid, centered and visually integrated */
+.airbnb-embed-frame {
+  width: 100% !important;
+  max-width: 450px !important;   /* match listing max-width */
+  margin: 0 auto !important;     /* center */
+  overflow: hidden;
+  border-radius: 12px;
+  background: transparent !important; /* try to remove any container white bg */
+  border: none !important;
+  padding: 0 !important;
+  box-shadow: none !important;
+}
 
+/* Force iframe to fit and remove its own borders where possible */
+.airbnb-embed-frame iframe {
+  width: 100% !important;
+  height: 300px;
+  max-width: 100% !important;
+  border: 0 !important;
+  background: transparent !important;
+  display: block;
+}
+
+/* Keep the combo block as-is (visuals) but ensure spacing matches */
 .combo {
   margin-top: 2.5rem;
   display: flex;
@@ -361,6 +407,17 @@ a { color: inherit; }
 .combo .eyebrow { color: var(--mint); margin-bottom: 0.5rem; }
 .combo h3 { font-size: clamp(1.4rem, 3vw, 1.9rem); }
 .combo p { margin: 0; opacity: 0.85; }
+
+/* Responsive tweak to ensure nice grid on small screens */
+@media (max-width: 540px) {
+  .listing {
+    padding: 1rem 0.5rem;
+  }
+  .airbnb-embed-frame iframe {
+    height: 240px;
+  }
+}
+
 
 /* ---------- Reviews ---------- */
 .review-grid {
