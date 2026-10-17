@@ -153,6 +153,39 @@ a { color: inherit; }
   margin: 0;
   padding: 0;
 }
+.photo-slot { /* preserves existing figure behavior */
+  overflow: hidden; /* clips corners when you use border-radius */
+  border-radius: 12px; /* optional: soften corners */
+}
+
+/* Row that keeps two portraits side-by-side */
+.photo-row {
+  display: flex;
+  gap: 12px;
+  align-items: stretch;
+}
+
+/* Portrait images: keep same height, crop to fill, and maintain good coverage */
+.photo-portrait {
+  flex: 1 1 0;
+  width: 50%;
+  height: 320px;           /* adjust height as needed */
+  object-fit: cover;       /* crop to fill without distortion */
+  display: block;
+  border-radius: 8px;      /* small inner radius if you want separation */
+}
+
+/* On small screens stack the images vertically */
+@media (max-width: 720px) {
+  .photo-row {
+    flex-direction: column;
+  }
+  .photo-portrait {
+    width: 100%;
+    height: auto; /* let the image determine height on narrow screens */
+    border-radius: 6px;
+  }
+}
 .nav__links a {
   text-decoration: none;
   font-weight: 500;
