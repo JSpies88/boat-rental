@@ -111,7 +111,56 @@
             <li>Departing from Oceana Power Boat Club</li>
           </ul>
         </div>
+<!-- Pricing table generation (next 10 days) -->
+      (function buildPricingTable() {
+        var table = document.getElementById('pricing-table');
+        if (!table) return;
+        var defaultPrice = table.getAttribute('data-default-price') || 'R2850';
+        var today = new Date();
+        // header row (first empty cell for row labels)
+        var thead = document.createElement('thead');
+        var headRow = document.createElement('tr');
+        var emptyTh = document.createElement('th');
+        emptyTh.setAttribute('aria-hidden', 'true');
+        headRow.appendChild(emptyTh);
 
+        for (var i = 0; i < 10; i++) {
+          var d = new Date(today);
+          d.setDate(today.getDate() + i);
+          // Format like: Mon 17 Oct
+          var opts = { weekday: 'short', day: 'numeric', month: 'short' };
+          var label = d.toLocaleDateString('en-GB', opts);
+          var th = document.createElement('th');
+          var strong = document.createElement('strong');
+          strong.textContent = label;
+          th.appendChild(strong);
+          headRow.appendChild(th);
+        }
+        thead.appendChild(headRow);
+        table.appendChild(thead);
+
+        // rows: Full day, Sunrise, Sunset
+        var tbody = document.createElement('tbody');
+        var rows = ['Full day', 'Sunrise', 'Sunset'];
+        rows.forEach(function (rowLabel) {
+          var tr = document.createElement('tr');
+          var rowTh = document.createElement('th');
+          rowTh.setAttribute('scope', 'row');
+          rowTh.textContent = rowLabel;
+          tr.appendChild(rowTh);
+
+          for (var j = 0; j < 10; j++) {
+            var td = document.createElement('td');
+            td.textContent = defaultPrice;
+            td.setAttribute('data-day-offset', j);
+            tr.appendChild(td);
+          }
+          tbody.appendChild(tr);
+        });
+        table.appendChild(tbody);
+      })();
+      <!-- end pricing table generation -->
+            
         <figure class="photo-slot" aria-label="Photos of private charter boats">
           <!-- <img src="C:\Users\s1019650\Downloads\Other\CT Rentals\Pictures\try.jpeg" alt="Private charter boat"> -->
           <div class="photo-placeholder">Photos of the boats (private charters)</div>
