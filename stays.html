@@ -346,6 +346,27 @@
  <!-- Load the Airbnb embed script once for all listings -->
   <script async src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script>
   <script src="script.js"></script>
+     <script>
+document.addEventListener('DOMContentLoaded', function () {
+  var radius = '12px'; // e.g. '8px', '12px', '1rem', etc.
+
+  // Target your figure/photo containers
+  var figures = document.querySelectorAll('figure.photo-slot, .photo-slot');
+  figures.forEach(function (fig) {
+    fig.style.borderRadius = radius;
+    fig.style.overflow = 'hidden'; // ensures children are clipped to the rounded corners
+  });
+
+  // Ensure images fill the container and respect the radius
+  var imgs = document.querySelectorAll('figure.photo-slot img, .photo-slot img');
+  imgs.forEach(function (img) {
+    img.style.display = 'block';
+    img.style.width = '100%';
+    img.style.height = 'auto';
+    img.style.borderRadius = 'inherit';
+  });
+});
+      </script>
 </body>
 
 </html>
