@@ -213,6 +213,16 @@
         build();
       }
     })();
+
+    
+  </script>
+</section>
+      <!-- end pricing table generation -->
+            
+    
+      </div>
+    </section>
+      <script>
 // find header index for a date string like "Mon 19 Oct"
 var headers = Array.from(document.querySelectorAll('#pricing-table thead th')).slice(1); // skip first empty th
 var idx = headers.findIndex(h => h.textContent.trim().startsWith('Sat'));
@@ -233,15 +243,7 @@ if (idx !== -1) {
   var cell = fullDay.querySelector('td[data-day-offset="' + dayOffset + '"]');
   if (cell) cell.textContent = 'R3300';
 }    
-    
-  </script>
-</section>
-      <!-- end pricing table generation -->
-            
-    
-      </div>
-    </section>
-
+  <script>
     <!-- Contact / enquiry form -->
     <section class="section section--contact" id="boat-contact">
       <div class="section__heading">
