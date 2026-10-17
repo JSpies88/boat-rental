@@ -222,35 +222,29 @@
     
       </div>
     </section>
-      <script>
-// Set weekend (Sat/Sun) prices to R3300 for the generated pricing table.
-// Run this after the pricing table is built.
-(function setWeekendPrices() {
+    <script>
+document.addEventListener('DOMContentLoaded', function () {
+  // Set weekend (Sat/Sun) prices to R3300 for the generated pricing table.
   var table = document.getElementById('pricing-table');
   if (!table) return;
 
-  // Use today's date components so addition of days is reliable (no timezone oddities)
   var today = new Date();
   var year = today.getFullYear();
   var month = today.getMonth();
   var day = today.getDate();
 
-  // iterate all price cells
   var tds = table.querySelectorAll('tbody td[data-day-offset]');
   tds.forEach(function (td) {
     var offset = parseInt(td.getAttribute('data-day-offset'), 10);
     if (isNaN(offset)) return;
-
-    // build the date for this cell (local time)
     var cellDate = new Date(year, month, day + offset);
     var weekday = cellDate.getDay(); // 0 = Sunday, 6 = Saturday
-
     if (weekday === 0 || weekday === 6) {
       td.textContent = 'R3300';
     }
   });
-})();
-  <script>
+});
+</script>
     <!-- Contact / enquiry form -->
     <section class="section section--contact" id="boat-contact">
       <div class="section__heading">
