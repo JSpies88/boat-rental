@@ -213,6 +213,27 @@
         build();
       }
     })();
+// find header index for a date string like "Mon 19 Oct"
+var headers = Array.from(document.querySelectorAll('#pricing-table thead th')).slice(1); // skip first empty th
+var idx = headers.findIndex(h => h.textContent.trim().startsWith('Sat'));
+if (idx !== -1) {
+  var dayOffset = idx; // headers[0] corresponds to data-day-offset="0"
+  // set Full day for that date
+  var fullDay = document.querySelectorAll('#pricing-table tbody tr')[0];
+  var cell = fullDay.querySelector('td[data-day-offset="' + dayOffset + '"]');
+  if (cell) cell.textContent = 'R3300';
+}
+// find header index for a date string like " 19 Oct"
+var headers = Array.from(document.querySelectorAll('#pricing-table thead th')).slice(1); // skip first empty th
+var idx = headers.findIndex(h => h.textContent.trim().startsWith('Sun'));
+if (idx !== -1) {
+  var dayOffset = idx; // headers[0] corresponds to data-day-offset="0"
+  // set Full day for that date
+  var fullDay = document.querySelectorAll('#pricing-table tbody tr')[0];
+  var cell = fullDay.querySelector('td[data-day-offset="' + dayOffset + '"]');
+  if (cell) cell.textContent = 'R3300';
+}    
+    
   </script>
 </section>
       <!-- end pricing table generation -->
