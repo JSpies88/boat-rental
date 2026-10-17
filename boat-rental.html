@@ -112,12 +112,53 @@
           </ul>
         </div>
 <!-- Pricing table generation (next 10 days) -->
-      (function buildPricingTable() {
+      <section class="section section--tint" id="pricing-next-10-days" aria-labelledby="pricing-heading">
+  <div class="section__heading">
+    <p class="eyebrow">Availability & Pricing</p>
+    <h2 id="pricing-heading">Pricing — next 10 days</h2>
+    <p>Choose a day and see example prices. (All amounts are editable — currently set to R2850.)</p>
+  </div>
+
+  <div id="pricing-dates" style="overflow:auto">
+    <table id="pricing-table" class="pricing-table" data-default-price="R2850" style="color:black; width:100%; border-collapse:collapse; min-width:700px;">
+      <!-- Populated by the script below -->
+    </table>
+  </div>
+
+  <style>
+    .pricing-table th,
+    .pricing-table td {
+      border: 1px solid rgba(0,0,0,0.08);
+      padding: 10px;
+      text-align: center;
+      font-family: inherit;
+      color: black;
+    }
+    .pricing-table thead th {
+      background: transparent;
+      font-weight: normal;
+    }
+    .pricing-table tbody th {
+      text-align: left;
+      background: transparent;
+      font-weight: 600;
+      width: 160px;
+    }
+    @media (max-width: 760px) {
+      .pricing-table tbody th { width: auto; }
+      .pricing-table { min-width: 600px; }
+    }
+  </style>
+
+  <script>
+    (function () {
+      function build() {
         var table = document.getElementById('pricing-table');
         if (!table) return;
         var defaultPrice = table.getAttribute('data-default-price') || 'R2850';
         var today = new Date();
-        // header row (first empty cell for row labels)
+
+        // header
         var thead = document.createElement('thead');
         var headRow = document.createElement('tr');
         var emptyTh = document.createElement('th');
@@ -127,7 +168,6 @@
         for (var i = 0; i < 10; i++) {
           var d = new Date(today);
           d.setDate(today.getDate() + i);
-          // Format like: Mon 17 Oct
           var opts = { weekday: 'short', day: 'numeric', month: 'short' };
           var label = d.toLocaleDateString('en-GB', opts);
           var th = document.createElement('th');
@@ -139,7 +179,7 @@
         thead.appendChild(headRow);
         table.appendChild(thead);
 
-        // rows: Full day, Sunrise, Sunset
+        // body rows
         var tbody = document.createElement('tbody');
         var rows = ['Full day', 'Sunrise', 'Sunset'];
         rows.forEach(function (rowLabel) {
@@ -158,7 +198,16 @@
           tbody.appendChild(tr);
         });
         table.appendChild(tbody);
-      })();
+      }
+
+      if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', build);
+      } else {
+        build();
+      }
+    })();
+  </script>
+</section>
       <!-- end pricing table generation -->
             
         <figure class="photo-slot" aria-label="Photos of private charter boats">
