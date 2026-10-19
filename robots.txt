@@ -1,4 +1,4 @@
 User-agent: *
 Disallow:
 
-Sitemap: https://jspies88.github.io/boat-rental/sitemap.xml
+Sitemap: https://www.capetown-collection.co.za/sitemap.xml
