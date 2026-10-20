@@ -124,7 +124,7 @@
   <div class="section__heading">
     <p class="eyebrow">Availability & Pricing</p>
     <h2 id="pricing-heading">Pricing — next 10 days</h2>
-    <p>Choose a day and see example prices. (All amounts are editable — currently set to R2850.)</p>
+    <!-- <p>Choose a day and see example prices. (All amounts are editable — currently set to R2850.)</p> -->
   </div>
 
   <div id="pricing-dates" style="overflow:auto">
@@ -164,7 +164,7 @@
       function build() {
         var table = document.getElementById('pricing-table');
         if (!table) return;
-        var defaultPrice = table.getAttribute('data-default-price') || 'R2850';
+        var defaultPrice = table.getAttribute('data-default-price') || 'R2950';
         var today = new Date();
 
         // header
@@ -190,7 +190,7 @@
 
         // body rows
         var tbody = document.createElement('tbody');
-        var rows = ['Full day', 'Sunrise', 'Sunset'];
+        var rows = [ 'Sunrise', 'Sunset']; <!-- 'Full day',-->
         rows.forEach(function (rowLabel) {
           var tr = document.createElement('tr');
           var rowTh = document.createElement('th');
@@ -221,7 +221,8 @@
 </section>
       <!-- end pricing table generation -->
             
-    
+    *R5 000 Insurance Deposit for Single Day Bare Boat Rentals 
+    *R10 000 Insurance Deposit for Mutli-Day Bare Boat Rentals 
       </div>
     </section>
     <script>
@@ -242,7 +243,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var cellDate = new Date(year, month, day + offset);
     var weekday = cellDate.getDay(); // 0 = Sunday, 6 = Saturday
     if (weekday === 0 || weekday === 6) {
-      td.textContent = 'R3300';
+      td.textContent = 'R3450';
     }
   });
 });
