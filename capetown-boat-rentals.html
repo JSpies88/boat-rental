@@ -224,7 +224,7 @@
           }
         })();
       </script>
-
+      <p class="pricing-note">*up to 6 Passangers</p>
       <p class="pricing-note">*Subject to Availability and Weather</p>
     </section>
     <!-- end pricing table generation -->
@@ -274,7 +274,7 @@ document.addEventListener('DOMContentLoaded', function () {
     var offset = parseInt(td.getAttribute('data-day-offset'), 10);
     if (isNaN(offset)) return;
     var cellDate = new Date(year, month, day + offset);
-    var weekday = cellDate.getDay(); // 0 = Sunday, 6 = Saturday, 5 = Friday
+    var weekday = cellDate.getDay(); // 0 = Sunday, 6 = Saturday
     if (weekday === 0 || weekday === 6) {
       td.textContent = 'R4550';
     }
