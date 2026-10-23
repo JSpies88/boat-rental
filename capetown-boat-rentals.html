@@ -136,7 +136,7 @@
       </div>
 
       <div id="pricing-dates" style="overflow:auto; max-width:1180px; margin:0 auto;">
-        <table id="pricing-table" class="pricing-table" data-default-price="R2850" style="color:black; width:100%; border-collapse:collapse; min-width:700px;">
+        <table id="pricing-table" class="pricing-table" data-default-price="R3950" style="color:black; width:100%; border-collapse:collapse; min-width:700px;">
           <!-- Populated by the script below -->
         </table>
       </div>
@@ -260,7 +260,7 @@
     </section>
     <script>
 document.addEventListener('DOMContentLoaded', function () {
-  // Set weekend (Sat/Sun) prices to R3300 for the generated pricing table.
+  // Set weekend (Sat/Sun) prices to Rxxxx for the generated pricing table.
   var table = document.getElementById('pricing-table');
   if (!table) return;
 
@@ -274,9 +274,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var offset = parseInt(td.getAttribute('data-day-offset'), 10);
     if (isNaN(offset)) return;
     var cellDate = new Date(year, month, day + offset);
-    var weekday = cellDate.getDay(); // 0 = Sunday, 6 = Saturday
+    var weekday = cellDate.getDay(); // 0 = Sunday, 6 = Saturday, 5 = Friday
     if (weekday === 0 || weekday === 6) {
-      td.textContent = 'R3450';
+      td.textContent = 'R4550';
     }
   });
 });
