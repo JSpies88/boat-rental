@@ -345,6 +345,49 @@
     });
   </script>
 
+   <form class="form" id="contact-form" novalidate>
+          <fieldset class="chips">
+            <legend>I'm interested in</legend>
+            <label><input type="radio" name="interest" value="A boat day" checked /><span>A boat day</span></label>
+            <label><input type="radio" name="interest" value="A stay" /><span>A stay</span></label>
+            <label><input type="radio" name="interest" value="Both" /><span>Both</span></label>
+          </fieldset>
+
+          <fieldset class="chips">
+            <legend>Group size</legend>
+            <label><input type="radio" name="group" value="1–2 people" checked /><span>1–2</span></label>
+            <label><input type="radio" name="group" value="3–4 people" /><span>3–4</span></label>
+            <label><input type="radio" name="group" value="5+ people" /><span>5+</span></label>
+          </fieldset>
+
+          <div class="form__row">
+            <label class="field">
+              <span>Your name</span>
+              <input type="text" name="name" autocomplete="name" required />
+            </label>
+            <label class="field">
+              <span>Rough dates</span>
+              <input type="text" name="dates" placeholder="e.g. 12–16 Dec" />
+            </label>
+          </div>
+
+          <label class="field">
+            <span>Anything we should know?</span>
+            <textarea name="message" rows="4"
+              placeholder="Celebrating something? Travelling with kids? Tell us."></textarea>
+          </label>
+
+          <p class="form__error" id="form-error" role="alert" hidden>Please add your name so we know who we're chatting to.</p>
+
+          <div class="form__actions">
+            <button class="button" type="submit">Send on WhatsApp <span aria-hidden="true">→</span></button>
+            <button class="text-link text-link--button" type="button" id="email-btn">or send by email</button>
+          </div>
+        </form>
+      
+
+
+
  <!-- Load the Airbnb embed script once for all listings -->
   <script async src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script>
   <script src="script.js"></script>
