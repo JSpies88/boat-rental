@@ -391,7 +391,7 @@ document.addEventListener('DOMContentLoaded', function () {
       });
 
       var form = document.getElementById('rental-form');
-      form.addEventListener('submit', function (e) {
+      form.addEventListener('submit', async function (e) {
         e.preventDefault();
         // Basic client-side validation
         var required = form.querySelectorAll('[required]');
@@ -406,6 +406,31 @@ document.addEventListener('DOMContentLoaded', function () {
           err.focus();
           return;
         }
+        <script>
+  // Inside the existing form.addEventListener('submit', ...) handler,
+  // after validation succeeds:
+  try {
+    var response = await fetch(
+      'https://formsubmit.co/ajax/' + encodeURIComponent(EMAIL_ADDRESS),
+      {
+        method: 'POST',
+        headers: { Accept: 'application/json' },
+        body: new FormData(form)
+      }
+    );
+
+    if (!response.ok) throw new Error('Email submission failed');
+
+    alert('Thanks — your enquiry has been sent.');
+    form.reset();
+    endWrapper.style.display = 'none';
+  } catch (error) {
+    var err = document.getElementById('rental-form-error');
+    err.hidden = false;
+    err.textContent = 'Sorry, your enquiry could not be sent. Please try again.';
+    console.error(error);
+  }
+</script>
 
         // Collect form data and send via fetch to your endpoint or open mailto/WhatsApp
         // Placeholder: show a confirmation for now
