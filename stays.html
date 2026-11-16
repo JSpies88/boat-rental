@@ -348,6 +348,71 @@
  <!-- Load the Airbnb embed script once for all listings -->
   <script async src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script>
   <script src="script.js"></script>
+
+<script>
+  const rentalForm = document.getElementById('rental-form');
+
+  if (rentalForm) {
+    // Capture the submit before the existing inline handler, which currently
+    // displays a placeholder confirmation instead of sending the enquiry.
+    rentalForm.addEventListener('submit', async function (event) {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+
+      const error = document.getElementById('rental-form-error');
+      const requiredFields = Array.from(rentalForm.querySelectorAll('[required]'));
+      const option = rentalForm.querySelector('input[name="option"]:checked');
+      const multiDay = document.getElementById('multi-day');
+      const endDate = rentalForm.querySelector('[name="end_date"]');
+
+      const missingRequired = requiredFields.some(field => !field.value.trim());
+      const missingEndDate = multiDay.checked && !endDate.value;
+
+      if (!option || missingRequired || missingEndDate) {
+        error.hidden = false;
+        error.textContent =
+          'Please complete the required fields and provide an end date for multi-day rentals.';
+        return;
+      }
+
+      error.hidden = true;
+
+      const formData = new FormData(rentalForm);
+      const selectedOption = option.closest('label');
+      formData.set(
+        'option',
+        selectedOption ? selectedOption.textContent.trim().replace(/\s+/g, ' ') : option.value
+      );
+      formData.set('_subject', 'Cape Town boat rental enquiry');
+
+      try {
+        const response = await fetch(
+          'https://formsubmit.co/ajax/' + encodeURIComponent(EMAIL_ADDRESS),
+          {
+            method: 'POST',
+            headers: { Accept: 'application/json' },
+            body: formData
+          }
+        );
+
+        if (!response.ok) throw new Error('Email service returned an error.');
+
+        error.hidden = false;
+        error.textContent = 'Thanks — your enquiry has been sent.';
+        rentalForm.reset();
+
+        const endDateWrapper = document.getElementById('end-date-wrapper');
+        endDateWrapper.style.display = 'none';
+      } catch (sendError) {
+        error.hidden = false;
+        error.textContent =
+          'Sorry, your enquiry could not be sent. Please try again or contact us by WhatsApp.';
+        console.error(sendError);
+      }
+    }, true);
+  }
+</script>
+   
      <script>
 document.addEventListener('DOMContentLoaded', function () {
   var radius = '12px'; // e.g. '8px', '12px', '1rem', etc.
