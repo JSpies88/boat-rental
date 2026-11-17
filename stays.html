@@ -233,7 +233,7 @@
         <p>Tell us which option you're interested in and a few details so we can check availability and send a quote.</p>
       </div>
     
-      <form id="stay-form" class="form" novalidate>
+      <form id="stay-form" class="form booking-form" novalidate>
 
       <fieldset class="booking-form__step">
           <legend><span class="step-num">1</span> Choose your Stay</legend>
@@ -265,19 +265,10 @@
           </div>
         </fieldset>
 
-         
-         <div class="form__row">
-          <label class="field">
-            <span>Name and surname</span>
-            <input type="text" name="fullname" autocomplete="name" placeholder="First + Last" required />
-          </label>
-          <label class="field">
-            <span>Cellphone number</span>
-            <input type="tel" name="phone" autocomplete="tel" placeholder="+27 82 000 0000" required />
-          </label>
-        </div>
-    
-        <div class="form__row">
+         <!-- Step 2: dates -->
+        <fieldset class="booking-form__step">
+          <legend><span class="step-num">2</span> When</legend>
+ <div class="form__row">
           <label class="field">
             <span>Check-in date</span>
             <input type="date" name="checkin" required />
@@ -287,17 +278,42 @@
             <input type="date" name="checkout" required />
           </label>
         </div>
-    
-        <label class="field">
-          <span>Notes (anything we should know)</span>
-          <textarea name="notes" rows="4" placeholder="Celebrating something? Number of guests?"></textarea>
-        </label>
+        </fieldset>
+          
+       
+
+   <!-- Step 3: contact details -->
+        <fieldset class="booking-form__step">
+          <legend><span class="step-num">3</span> Your details</legend>
+          <div class="form__row">
+            <label class="field">
+              <span>Name and surname</span>
+              <input type="text" name="fullname" autocomplete="name" placeholder="First + Last" required />
+            </label>
+            <label class="field">
+              <span>Cellphone number</span>
+              <input type="tel" name="phone" autocomplete="tel" placeholder="+27 82 000 0000" required />
+            </label>
+          </div>
+          <label class="field">
+            <span>Notes <small>(optional)</small></span>
+            <textarea name="notes" rows="4"
+              placeholder="Celebrating something? Number of guests?"></textarea>
+          </label>
+        </fieldset>
+
     
         <p class="form__error" id="stay-form-error" role="alert" hidden>Please fill in the required fields.</p>
     
         <div class="form__actions">
           <button class="button" type="submit">Send enquiry</button>
-          <button class="text-link text-link--button" type="button" id="stay-whatsapp">Or send on WhatsApp</button>
+          <button class="button button--whatsapp" type="button" id="contact-whatsapp">
+            <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
+              <path fill="currentColor"
+                d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2Zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2Zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.2-.4.2-.4.7-1.3.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3Z" />
+            </svg>
+            Send on WhatsApp
+          </button>
         </div>
       </form>
     </section>
