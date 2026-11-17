@@ -26,7 +26,7 @@
       <nav aria-label="Main">
         <ul class="nav__links">
           <li><a href="stays.html">Stays</a></li>
-          <li><a href="boat-rental.html">Boat Rentals</a></li>
+          <li><a href="capetown-boat-rentals.html">Boat Rentals</a></li>
         </ul>
       </nav>
       <a class="button button--small" href="#rental-contact">Send Enquiry</a>
@@ -226,56 +226,54 @@
     </section>
 
 
-    <!-- Contact / enquiry form -->
-    <section class="section section--contact" id="rental-contact">
+    <section class="section section--contact" id="stay-contact">
       <div class="section__heading">
         <p class="eyebrow">Contact us</p>
         <h2>Enquire about a Stay with Us</h2>
         <p>Tell us which option you're interested in and a few details so we can check availability and send a quote.</p>
       </div>
-
-      <form id="rental-form" class="form" novalidate>
+    
+      <form id="stay-form" class="form" novalidate>
         <fieldset>
           <legend>Which option would you like to enquire about?</legend>
-          <label><input type="radio" name="option" value="Kaapstad" /> <span>Kaapstad Studio</span></label>
-          <label><input type="radio" name="option" value="1Bedroom" checked /> <span>1 Bedroom with workspace</span></label>
-          <label><input type="radio" name="option" value="Studio" checked /> <span>Studio with Balcony</span></label>
-          <label><input type="radio" name="option" value="Beachfront" checked /> <span>3 Bedroom Beachfront</span></label>
+          <label><input type="radio" name="option" value="Kaapstad Studio" checked /> <span>Kaapstad Studio</span></label>
+          <label><input type="radio" name="option" value="1 Bedroom with workspace" /> <span>1 Bedroom with workspace</span></label>
+          <label><input type="radio" name="option" value="Studio with Balcony" /> <span>Studio with Balcony</span></label>
+          <label><input type="radio" name="option" value="3 Bedroom Beachfront" /> <span>3 Bedroom Beachfront</span></label>
         </fieldset>
-
+    
         <div class="form__row">
           <label class="field">
             <span>Name and surname</span>
             <input type="text" name="fullname" autocomplete="name" placeholder="First + Last" required />
           </label>
-           <label class="field">
+          <label class="field">
             <span>Cellphone number</span>
             <input type="tel" name="phone" autocomplete="tel" placeholder="+27 82 000 0000" required />
           </label>
         </div>
-
+    
         <div class="form__row">
           <label class="field">
-            <span>From Date</span>
-            <input type="date" name="start_date" required />
+            <span>Check-in date</span>
+            <input type="date" name="checkin" required />
           </label>
           <label class="field">
-            <span>To Date</span>
-            <input type="date" name="start_date" required />
+            <span>Check-out date</span>
+            <input type="date" name="checkout" required />
           </label>
         </div>
-       
-
+    
         <label class="field">
           <span>Notes (anything we should know)</span>
-          <textarea name="notes" rows="4" placeholder="Celebrating something? Bringing kids? Require Tubes?"></textarea>
+          <textarea name="notes" rows="4" placeholder="Celebrating something? Bringing kids? Number of guests?"></textarea>
         </label>
-
-        <p class="form__error" id="rental-form-error" role="alert" hidden>Please fill in the required fields.</p>
-
+    
+        <p class="form__error" id="stay-form-error" role="alert" hidden>Please fill in the required fields.</p>
+    
         <div class="form__actions">
           <button class="button" type="submit">Send enquiry</button>
-          <button class="text-link text-link--button" type="button" id="contact-whatsapp">Or send on WhatsApp</button>
+          <button class="text-link text-link--button" type="button" id="stay-whatsapp">Or send on WhatsApp</button>
         </div>
       </form>
     </section>
@@ -292,130 +290,10 @@
     </div>
   </footer>
 
-  <script>
-    // Toggle end date when multiple days is checked
-    document.addEventListener('DOMContentLoaded', function () {
-      var multi = document.getElementById('multi-day');
-      var endWrapper = document.getElementById('end-date-wrapper');
-      multi.addEventListener('change', function () {
-        endWrapper.style.display = multi.checked ? 'block' : 'none';
-        if (!multi.checked) {
-          var endInput = endWrapper.querySelector('input[name="end_date"]');
-          if (endInput) endInput.value = '';
-        }
-      });
-
-      var form = document.getElementById('rental-form');
-      form.addEventListener('submit', function (e) {
-        e.preventDefault();
-        // Basic client-side validation
-        var required = form.querySelectorAll('[required]');
-        var valid = true;
-        required.forEach(function (el) {
-          if (!el.value) valid = false;
-        });
-        if (!valid) {
-          var err = document.getElementById('rental-form-error');
-          err.hidden = false;
-          err.textContent = 'Please fill in the required fields.';
-          err.focus();
-          return;
-        }
-
-        // Collect form data and send via fetch to your endpoint or open mailto/WhatsApp
-        // Placeholder: show a confirmation for now
-        alert('Thanks — your enquiry has been prepared. We will contact you shortly.');
-        form.reset();
-        endWrapper.style.display = 'none';
-      });
-
-      var waBtn = document.getElementById('contact-whatsapp');
-      waBtn.addEventListener('click', function () {
-        // Create a simple WhatsApp message from the form values
-        var option = form.querySelector('input[name="option"]:checked').value;
-        var name = form.querySelector('input[name="fullname"]').value || '';
-        var phone = form.querySelector('input[name="phone"]').value || '';
-        var start = form.querySelector('input[name="start_date"]').value || '';
-        var multiChecked = document.getElementById('multi-day').checked;
-        var end = form.querySelector('input[name="end_date"]').value || '';
-        var msg = encodeURIComponent('Enquiry: ' + option + '\nName: ' + name + '\nPhone: ' + phone + '\nStart: ' + start + (multiChecked ? ('\nEnd: ' + end) : '') );
-        var waUrl = 'https://wa.me/?text=' + msg;
-        window.open(waUrl, '_blank');
-      });
-    });
-  </script>
-
-   
-
 
  <!-- Load the Airbnb embed script once for all listings -->
   <script async src="https://www.airbnb.com/embeddable/airbnb_jssdk"></script>
   <script src="script.js"></script>
-
-<script>
-  const rentalForm = document.getElementById('rental-form');
-
-  if (rentalForm) {
-    // Capture the submit before the existing inline handler, which currently
-    // displays a placeholder confirmation instead of sending the enquiry.
-    rentalForm.addEventListener('submit', async function (event) {
-      event.preventDefault();
-      event.stopImmediatePropagation();
-
-      const error = document.getElementById('rental-form-error');
-      const requiredFields = Array.from(rentalForm.querySelectorAll('[required]'));
-      const option = rentalForm.querySelector('input[name="option"]:checked');
-      const multiDay = document.getElementById('multi-day');
-      const endDate = rentalForm.querySelector('[name="end_date"]');
-
-      const missingRequired = requiredFields.some(field => !field.value.trim());
-      const missingEndDate = multiDay.checked && !endDate.value;
-
-      if (!option || missingRequired || missingEndDate) {
-        error.hidden = false;
-        error.textContent =
-          'Please complete the required fields and provide an end date for multi-day rentals.';
-        return;
-      }
-
-      error.hidden = true;
-
-      const formData = new FormData(rentalForm);
-      const selectedOption = option.closest('label');
-      formData.set(
-        'option',
-        selectedOption ? selectedOption.textContent.trim().replace(/\s+/g, ' ') : option.value
-      );
-      formData.set('_subject', 'Cape Town boat rental enquiry');
-
-      try {
-        const response = await fetch(
-          'https://formsubmit.co/ajax/' + encodeURIComponent(EMAIL_ADDRESS),
-          {
-            method: 'POST',
-            headers: { Accept: 'application/json' },
-            body: formData
-          }
-        );
-
-        if (!response.ok) throw new Error('Email service returned an error.');
-
-        error.hidden = false;
-        error.textContent = 'Thanks — your enquiry has been sent.';
-        rentalForm.reset();
-
-        const endDateWrapper = document.getElementById('end-date-wrapper');
-        endDateWrapper.style.display = 'none';
-      } catch (sendError) {
-        error.hidden = false;
-        error.textContent =
-          'Sorry, your enquiry could not be sent. Please try again or contact us by WhatsApp.';
-        console.error(sendError);
-      }
-    }, true);
-  }
-</script>
-   
      <script>
 document.addEventListener('DOMContentLoaded', function () {
   var radius = '12px'; // e.g. '8px', '12px', '1rem', etc.
