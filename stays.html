@@ -234,15 +234,39 @@
       </div>
     
       <form id="stay-form" class="form" novalidate>
-        <fieldset>
-          <legend>Which option would you like to enquire about?</legend>
-          <label><input type="radio" name="option" value="Kaapstad Studio" checked /> <span>Kaapstad Studio</span></label>
-          <label><input type="radio" name="option" value="1 Bedroom with workspace" /> <span>1 Bedroom with workspace</span></label>
-          <label><input type="radio" name="option" value="Studio with Balcony" /> <span>Studio with Balcony</span></label>
-          <label><input type="radio" name="option" value="3 Bedroom Beachfront" /> <span>3 Bedroom Beachfront</span></label>
+
+      <fieldset class="booking-form__step">
+          <legend><span class="step-num">1</span> Choose your Stay</legend>
+          <div class="option-grid">
+            <label class="option-card">
+              <input type="radio" name="option" value="Kaapstad Studio" checked />
+              <!-- <span class="option-card__icon" aria-hidden="true">🌅</span> -->
+              <span class="option-card__title">Kaapstad Studio</span>
+              <span class="option-card__meta">Sea Point · 2 pax</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="option" value="Studio with Balcony" />
+              <!-- <span class="option-card__icon" aria-hidden="true">🌇</span> -->
+              <span class="option-card__title">Studio with Balcony</span>
+              <span class="option-card__meta">Green Point · 2 pax</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="option" value="1 Bedroom with Workspace" />
+              <!-- <span class="option-card__icon" aria-hidden="true">☀️</span> -->
+              <span class="option-card__title">1 Bedroom with Workspace</span>
+              <span class="option-card__meta">Green Point · 2 pax</span>
+            </label>
+            <label class="option-card">
+              <input type="radio" name="option" value="3 Bedroom Beachfront" />
+              <!-- <span class="option-card__icon" aria-hidden="true">⚓</span> -->
+              <span class="option-card__title">3 Bedroom Beachfront</span>
+              <span class="option-card__meta">Sea Point · 2 pax</span>
+            </label>
+          </div>
         </fieldset>
-    
-        <div class="form__row">
+
+         
+         <div class="form__row">
           <label class="field">
             <span>Name and surname</span>
             <input type="text" name="fullname" autocomplete="name" placeholder="First + Last" required />
@@ -266,7 +290,7 @@
     
         <label class="field">
           <span>Notes (anything we should know)</span>
-          <textarea name="notes" rows="4" placeholder="Celebrating something? Bringing kids? Number of guests?"></textarea>
+          <textarea name="notes" rows="4" placeholder="Celebrating something? Number of guests?"></textarea>
         </label>
     
         <p class="form__error" id="stay-form-error" role="alert" hidden>Please fill in the required fields.</p>
