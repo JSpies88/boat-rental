@@ -3,43 +3,101 @@ const WHATSAPP_NUMBER = "27826262701"; // country code + number, no "+" or space
 const EMAIL_ADDRESS = "jsjoubertspies7@gmail.com";
 // =================================================
 
-document.getElementById("year").textContent = new Date().getFullYear();
+document.addEventListener("DOMContentLoaded", () => {
+  const yearEl = document.getElementById("year");
+  if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-const form = document.getElementById("contact-form");
-const errorEl = document.getElementById("form-error");
-
-function buildMessage() {
-  const data = new FormData(form);
-  const name = (data.get("name") || "").trim();
-  if (!name) {
-    errorEl.hidden = false;
-    form.elements.name.focus();
-    return null;
+  // Boat form: show/hide the end date when "Multiple days" is ticked
+  const multiDay = document.getElementById("multi-day");
+  const endWrap = document.getElementById("end-date-wrapper");
+  if (multiDay && endWrap) {
+    const endInput = endWrap.querySelector("input");
+    multiDay.addEventListener("change", () => {
+      endWrap.style.display = multiDay.checked ? "" : "none";
+      endInput.required = multiDay.checked;
+      if (!multiDay.checked) endInput.value = "";
+    });
   }
-  errorEl.hidden = true;
 
-  const lines = [
-    `Hi! I'm ${name}.`,
-    `I'm interested in: ${data.get("interest")}`,
-    `Group size: ${data.get("group")}`,
-  ];
-  const dates = (data.get("dates") || "").trim();
-  const message = (data.get("message") || "").trim();
-  if (dates) lines.push(`Dates: ${dates}`);
-  if (message) lines.push("", message);
-  return lines.join("\n");
+  setupForm({
+    formId: "rental-form",
+    errorId: "rental-form-error",
+    whatsappId: "contact-whatsapp",
+    subject: "Cape Town Collection – boat enquiry",
+    fields: [
+      ["option", "Interested in"],
+      ["boat", "Boat"],
+      ["group", "Group size"],
+      ["fullname", "Name"],
+      ["phone", "Cellphone"],
+      ["start_date", "Date"],
+      ["end_date", "End date"],
+      ["notes", "Notes"],
+    ],
+  });
+
+  setupForm({
+    formId: "stay-form",
+    errorId: "stay-form-error",
+    whatsappId: "stay-whatsapp",
+    subject: "Cape Town Collection – stay enquiry",
+    fields: [
+      ["option", "Interested in"],
+      ["fullname", "Name"],
+      ["phone", "Cellphone"],
+      ["checkin", "Check-in"],
+      ["checkout", "Check-out"],
+      ["notes", "Notes"],
+    ],
+  });
+});
+
+function setupForm({ formId, errorId, whatsappId, subject, fields }) {
+  const form = document.getElementById(formId);
+  if (!form) return; // this form isn't on the page
+  const errorEl = document.getElementById(errorId);
+
+  function buildMessage() {
+    const missing = [...form.querySelectorAll("[required]")].find(
+      (el) => !el.value.trim()
+    );
+    if (missing) {
+      if (errorEl) errorEl.hidden = false;
+      missing.focus();
+      return null;
+    }
+    if (errorEl) errorEl.hidden = true;
+
+    const data = new FormData(form);
+    const lines = ["Hi! I'd like to make an enquiry:", ""];
+    for (const [name, label] of fields) {
+      const value = (data.get(name) || "").toString().trim();
+      if (value) lines.push(`${label}: ${value}`);
+    }
+    return lines.join("\n");
+  }
+
+  // "Send enquiry" → opens the visitor's email app with the message filled in
+  form.addEventListener("submit", (e) => {
+    e.preventDefault();
+    const text = buildMessage();
+    if (!text) return;
+    window.location.href =
+      `mailto:${EMAIL_ADDRESS}?subject=${encodeURIComponent(subject)}` +
+      `&body=${encodeURIComponent(text)}`;
+  });
+
+  // "Or send on WhatsApp"
+  const waBtn = document.getElementById(whatsappId);
+  if (waBtn) {
+    waBtn.addEventListener("click", () => {
+      const text = buildMessage();
+      if (!text) return;
+      window.open(
+        `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`,
+        "_blank",
+        "noopener"
+      );
+    });
+  }
 }
-
-form.addEventListener("submit", (e) => {
-  e.preventDefault();
-  const text = buildMessage();
-  if (!text) return;
-  window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`, "_blank", "noopener");
-});
-
-document.getElementById("email-btn").addEventListener("click", () => {
-  const text = buildMessage();
-  if (!text) return;
-  const subject = encodeURIComponent("Cape Town Collection enquiry");
-  window.location.href = `mailto:${EMAIL_ADDRESS}?subject=${subject}&body=${encodeURIComponent(text)}`;
-});
